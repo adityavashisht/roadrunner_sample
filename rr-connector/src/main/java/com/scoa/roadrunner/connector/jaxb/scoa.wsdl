@@ -1,0 +1,1914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:element name="GetFareForReservation">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="DepAirport" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepZip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepPessanger" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepDate" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvAirport" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvZip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvPessanger" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvDate" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="QueryString" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DiscCode" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DiscAmt" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetFareForReservationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetFareForReservationResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="AuthSoapHd" type="tns:AuthSoapHd" />
+            <s:complexType name="AuthSoapHd">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+                </s:sequence>
+                <s:anyAttribute />
+            </s:complexType>
+            <s:element name="CheckLogin">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CheckLoginResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CheckLoginResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ForgotPassword">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="UserEmailAddress" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ForgotPasswordResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ForgotPasswordResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="SaveReservation">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TravellerID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CustType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ResType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvDate" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvAirport" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvPassenger" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvPickupTime" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvFee" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvGratuity" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Discount" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Conf" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SpecialServiceamt" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvService" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvZip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SpecialServiceIDArv" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="RedemptionAmt" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CCNum" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CCname" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CCExpDate" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CCCID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CCTypeID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CZip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ReqType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="InfoID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PmtMode" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PMTDetails" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ISWindowID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvCity" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SpecialServicesJourneyType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TravelerFName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TravelerLName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TravelerHomePhno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TravelerWorkPhno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Travelercellno" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepZip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepService" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepPickUp" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvStreetNumber" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepStreetNumber" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvStreet" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepStreet" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvUnit" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepUnit" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvDirections" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepDirections" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ComplexArv" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ComplexDep" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvAP" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepAP" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvFlt" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepFlt" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepPickupTime" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="arvFltTime" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepFltTime" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvAirline" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepAirline" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="FltType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="origin" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="FlyingTo" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepPassenger" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepDate" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepCity" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepFee" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepGratuity" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Surcharge" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TravelerEmail" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="specialinst" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Restype1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Restypedetail" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="BillTo" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ReqArvTime" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="IsSendEmail" type="s:boolean" />
+                        <s:element minOccurs="0" maxOccurs="1" name="MailTo" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CharterDep" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CharterArv" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ClientId" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SpecialServiceIDDep" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepServiceidNew" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvServiceidNew" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ArvCancel" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DepCancel" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CouponEmail" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DiscCode" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DiscAmt" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="SaveReservationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="SaveReservationResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAirport">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="PreFix" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAirportResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetAirportResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAddress">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Customerid" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PreFix" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAddressResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetAddressResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetHotel">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PreFix" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetHotelResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetHotelResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAirLine">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="PreFix" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAirLineResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetAirLineResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetMyReservation">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Customerid" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetMyReservationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetMyReservationResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="NewUserRegistration">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CellPhone" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Unit" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Complex" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Direction" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Custid" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="CustType" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="NewUserRegistrationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="NewUserRegistrationResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetCityZipPair">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="PreFix" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetCityZipPairResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetCityZipPairResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CancelReservation">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="UpdateMode" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="ResId" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CancelReservationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CancelReservationResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetPickupETAForReservation">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="res" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="lname" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetPickupETAForReservationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetPickupETAForReservationResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="EmailResDetails">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ReservationNo" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="EmailResDetailsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="EmailResDetailsResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="EmailPaymentDetails">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ReservationNo" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="EmailPaymentDetailsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="EmailPaymentDetailsResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ChargeNowFromQGWithCustID">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="TransId" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="QGUser" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="VaultKey" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="CustId" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ChargeNowFromQGWithCustIDResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ChargeNowFromQGWithCustIDResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="GetFareForReservationSoapIn">
+        <wsdl:part name="parameters" element="tns:GetFareForReservation" />
+    </wsdl:message>
+    <wsdl:message name="GetFareForReservationSoapOut">
+        <wsdl:part name="parameters" element="tns:GetFareForReservationResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetFareForReservationAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginSoapIn">
+        <wsdl:part name="parameters" element="tns:CheckLogin" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginSoapOut">
+        <wsdl:part name="parameters" element="tns:CheckLoginResponse" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordSoapIn">
+        <wsdl:part name="parameters" element="tns:ForgotPassword" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordSoapOut">
+        <wsdl:part name="parameters" element="tns:ForgotPasswordResponse" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationSoapIn">
+        <wsdl:part name="parameters" element="tns:SaveReservation" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationSoapOut">
+        <wsdl:part name="parameters" element="tns:SaveReservationResponse" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportSoapIn">
+        <wsdl:part name="parameters" element="tns:GetAirport" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportSoapOut">
+        <wsdl:part name="parameters" element="tns:GetAirportResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressSoapIn">
+        <wsdl:part name="parameters" element="tns:GetAddress" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressSoapOut">
+        <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelSoapIn">
+        <wsdl:part name="parameters" element="tns:GetHotel" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelSoapOut">
+        <wsdl:part name="parameters" element="tns:GetHotelResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineSoapIn">
+        <wsdl:part name="parameters" element="tns:GetAirLine" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineSoapOut">
+        <wsdl:part name="parameters" element="tns:GetAirLineResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationSoapIn">
+        <wsdl:part name="parameters" element="tns:GetMyReservation" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationSoapOut">
+        <wsdl:part name="parameters" element="tns:GetMyReservationResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationSoapIn">
+        <wsdl:part name="parameters" element="tns:NewUserRegistration" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationSoapOut">
+        <wsdl:part name="parameters" element="tns:NewUserRegistrationResponse" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairSoapIn">
+        <wsdl:part name="parameters" element="tns:GetCityZipPair" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairSoapOut">
+        <wsdl:part name="parameters" element="tns:GetCityZipPairResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationSoapIn">
+        <wsdl:part name="parameters" element="tns:CancelReservation" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationSoapOut">
+        <wsdl:part name="parameters" element="tns:CancelReservationResponse" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationSoapIn">
+        <wsdl:part name="parameters" element="tns:GetPickupETAForReservation" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationSoapOut">
+        <wsdl:part name="parameters" element="tns:GetPickupETAForReservationResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsSoapIn">
+        <wsdl:part name="parameters" element="tns:EmailResDetails" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsSoapOut">
+        <wsdl:part name="parameters" element="tns:EmailResDetailsResponse" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsSoapIn">
+        <wsdl:part name="parameters" element="tns:EmailPaymentDetails" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsSoapOut">
+        <wsdl:part name="parameters" element="tns:EmailPaymentDetailsResponse" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDSoapIn">
+        <wsdl:part name="parameters" element="tns:ChargeNowFromQGWithCustID" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDSoapOut">
+        <wsdl:part name="parameters" element="tns:ChargeNowFromQGWithCustIDResponse" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDAuthSoapHd">
+        <wsdl:part name="AuthSoapHd" element="tns:AuthSoapHd" />
+    </wsdl:message>
+    <wsdl:message name="GetFareForReservationHttpGetIn">
+        <wsdl:part name="DepAirport" type="s:string" />
+        <wsdl:part name="DepZip" type="s:string" />
+        <wsdl:part name="DepPessanger" type="s:string" />
+        <wsdl:part name="DepDate" type="s:string" />
+        <wsdl:part name="ArvAirport" type="s:string" />
+        <wsdl:part name="ArvZip" type="s:string" />
+        <wsdl:part name="ArvPessanger" type="s:string" />
+        <wsdl:part name="ArvDate" type="s:string" />
+        <wsdl:part name="QueryString" type="s:string" />
+        <wsdl:part name="DiscCode" type="s:string" />
+        <wsdl:part name="DiscAmt" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetFareForReservationHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginHttpGetIn">
+        <wsdl:part name="UserName" type="s:string" />
+        <wsdl:part name="Password" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordHttpGetIn">
+        <wsdl:part name="UserEmailAddress" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationHttpGetIn">
+        <wsdl:part name="CustID" type="s:string" />
+        <wsdl:part name="TravellerID" type="s:string" />
+        <wsdl:part name="CustType" type="s:string" />
+        <wsdl:part name="ResType" type="s:string" />
+        <wsdl:part name="ArvDate" type="s:string" />
+        <wsdl:part name="ArvAirport" type="s:string" />
+        <wsdl:part name="ArvPassenger" type="s:string" />
+        <wsdl:part name="ArvPickupTime" type="s:string" />
+        <wsdl:part name="ArvFee" type="s:string" />
+        <wsdl:part name="ArvGratuity" type="s:string" />
+        <wsdl:part name="Discount" type="s:string" />
+        <wsdl:part name="Conf" type="s:string" />
+        <wsdl:part name="SpecialServiceamt" type="s:string" />
+        <wsdl:part name="ArvService" type="s:string" />
+        <wsdl:part name="ArvZip" type="s:string" />
+        <wsdl:part name="SpecialServiceIDArv" type="s:string" />
+        <wsdl:part name="RedemptionAmt" type="s:string" />
+        <wsdl:part name="CardType" type="s:string" />
+        <wsdl:part name="CCNum" type="s:string" />
+        <wsdl:part name="CCname" type="s:string" />
+        <wsdl:part name="CCExpDate" type="s:string" />
+        <wsdl:part name="CCCID" type="s:string" />
+        <wsdl:part name="CCTypeID" type="s:string" />
+        <wsdl:part name="CZip" type="s:string" />
+        <wsdl:part name="ReqType" type="s:string" />
+        <wsdl:part name="InfoID" type="s:string" />
+        <wsdl:part name="PmtMode" type="s:string" />
+        <wsdl:part name="PMTDetails" type="s:string" />
+        <wsdl:part name="ISWindowID" type="s:string" />
+        <wsdl:part name="ArvCity" type="s:string" />
+        <wsdl:part name="SpecialServicesJourneyType" type="s:string" />
+        <wsdl:part name="TravelerFName" type="s:string" />
+        <wsdl:part name="TravelerLName" type="s:string" />
+        <wsdl:part name="TravelerHomePhno" type="s:string" />
+        <wsdl:part name="TravelerWorkPhno" type="s:string" />
+        <wsdl:part name="Travelercellno" type="s:string" />
+        <wsdl:part name="IP" type="s:string" />
+        <wsdl:part name="DepZip" type="s:string" />
+        <wsdl:part name="DepService" type="s:string" />
+        <wsdl:part name="DepPickUp" type="s:string" />
+        <wsdl:part name="ArvStreetNumber" type="s:string" />
+        <wsdl:part name="DepStreetNumber" type="s:string" />
+        <wsdl:part name="ArvStreet" type="s:string" />
+        <wsdl:part name="DepStreet" type="s:string" />
+        <wsdl:part name="ArvUnit" type="s:string" />
+        <wsdl:part name="DepUnit" type="s:string" />
+        <wsdl:part name="ArvDirections" type="s:string" />
+        <wsdl:part name="DepDirections" type="s:string" />
+        <wsdl:part name="ComplexArv" type="s:string" />
+        <wsdl:part name="ComplexDep" type="s:string" />
+        <wsdl:part name="ArvAP" type="s:string" />
+        <wsdl:part name="DepAP" type="s:string" />
+        <wsdl:part name="ArvFlt" type="s:string" />
+        <wsdl:part name="DepFlt" type="s:string" />
+        <wsdl:part name="DepPickupTime" type="s:string" />
+        <wsdl:part name="arvFltTime" type="s:string" />
+        <wsdl:part name="DepFltTime" type="s:string" />
+        <wsdl:part name="ArvAirline" type="s:string" />
+        <wsdl:part name="DepAirline" type="s:string" />
+        <wsdl:part name="FltType" type="s:string" />
+        <wsdl:part name="origin" type="s:string" />
+        <wsdl:part name="FlyingTo" type="s:string" />
+        <wsdl:part name="DepPassenger" type="s:string" />
+        <wsdl:part name="DepDate" type="s:string" />
+        <wsdl:part name="DepCity" type="s:string" />
+        <wsdl:part name="DepFee" type="s:string" />
+        <wsdl:part name="DepGratuity" type="s:string" />
+        <wsdl:part name="Surcharge" type="s:string" />
+        <wsdl:part name="TravelerEmail" type="s:string" />
+        <wsdl:part name="specialinst" type="s:string" />
+        <wsdl:part name="Restype1" type="s:string" />
+        <wsdl:part name="Restypedetail" type="s:string" />
+        <wsdl:part name="BillTo" type="s:string" />
+        <wsdl:part name="ReqArvTime" type="s:string" />
+        <wsdl:part name="IsSendEmail" type="s:string" />
+        <wsdl:part name="MailTo" type="s:string" />
+        <wsdl:part name="CharterDep" type="s:string" />
+        <wsdl:part name="CharterArv" type="s:string" />
+        <wsdl:part name="ClientId" type="s:string" />
+        <wsdl:part name="SpecialServiceIDDep" type="s:string" />
+        <wsdl:part name="DepServiceidNew" type="s:string" />
+        <wsdl:part name="ArvServiceidNew" type="s:string" />
+        <wsdl:part name="ArvCancel" type="s:string" />
+        <wsdl:part name="DepCancel" type="s:string" />
+        <wsdl:part name="CouponEmail" type="s:string" />
+        <wsdl:part name="DiscCode" type="s:string" />
+        <wsdl:part name="DiscAmt" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportHttpGetIn">
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressHttpGetIn">
+        <wsdl:part name="Customerid" type="s:string" />
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelHttpGetIn">
+        <wsdl:part name="Zip" type="s:string" />
+        <wsdl:part name="City" type="s:string" />
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineHttpGetIn">
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationHttpGetIn">
+        <wsdl:part name="Customerid" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationHttpGetIn">
+        <wsdl:part name="EmailAddress" type="s:string" />
+        <wsdl:part name="FName" type="s:string" />
+        <wsdl:part name="LName" type="s:string" />
+        <wsdl:part name="HomePhone" type="s:string" />
+        <wsdl:part name="CellPhone" type="s:string" />
+        <wsdl:part name="Number" type="s:string" />
+        <wsdl:part name="Street" type="s:string" />
+        <wsdl:part name="Unit" type="s:string" />
+        <wsdl:part name="Complex" type="s:string" />
+        <wsdl:part name="City" type="s:string" />
+        <wsdl:part name="Zip" type="s:string" />
+        <wsdl:part name="Password" type="s:string" />
+        <wsdl:part name="Direction" type="s:string" />
+        <wsdl:part name="Custid" type="s:string" />
+        <wsdl:part name="CustType" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairHttpGetIn">
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationHttpGetIn">
+        <wsdl:part name="UpdateMode" type="s:string" />
+        <wsdl:part name="ResId" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationHttpGetIn">
+        <wsdl:part name="phone" type="s:string" />
+        <wsdl:part name="res" type="s:string" />
+        <wsdl:part name="lname" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsHttpGetIn">
+        <wsdl:part name="ReservationNo" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsHttpGetIn">
+        <wsdl:part name="ReservationNo" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDHttpGetIn">
+        <wsdl:part name="TransId" type="s:string" />
+        <wsdl:part name="UserName" type="s:string" />
+        <wsdl:part name="QGUser" type="s:string" />
+        <wsdl:part name="VaultKey" type="s:string" />
+        <wsdl:part name="CustId" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDHttpGetOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetFareForReservationHttpPostIn">
+        <wsdl:part name="DepAirport" type="s:string" />
+        <wsdl:part name="DepZip" type="s:string" />
+        <wsdl:part name="DepPessanger" type="s:string" />
+        <wsdl:part name="DepDate" type="s:string" />
+        <wsdl:part name="ArvAirport" type="s:string" />
+        <wsdl:part name="ArvZip" type="s:string" />
+        <wsdl:part name="ArvPessanger" type="s:string" />
+        <wsdl:part name="ArvDate" type="s:string" />
+        <wsdl:part name="QueryString" type="s:string" />
+        <wsdl:part name="DiscCode" type="s:string" />
+        <wsdl:part name="DiscAmt" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetFareForReservationHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginHttpPostIn">
+        <wsdl:part name="UserName" type="s:string" />
+        <wsdl:part name="Password" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="CheckLoginHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordHttpPostIn">
+        <wsdl:part name="UserEmailAddress" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="ForgotPasswordHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationHttpPostIn">
+        <wsdl:part name="CustID" type="s:string" />
+        <wsdl:part name="TravellerID" type="s:string" />
+        <wsdl:part name="CustType" type="s:string" />
+        <wsdl:part name="ResType" type="s:string" />
+        <wsdl:part name="ArvDate" type="s:string" />
+        <wsdl:part name="ArvAirport" type="s:string" />
+        <wsdl:part name="ArvPassenger" type="s:string" />
+        <wsdl:part name="ArvPickupTime" type="s:string" />
+        <wsdl:part name="ArvFee" type="s:string" />
+        <wsdl:part name="ArvGratuity" type="s:string" />
+        <wsdl:part name="Discount" type="s:string" />
+        <wsdl:part name="Conf" type="s:string" />
+        <wsdl:part name="SpecialServiceamt" type="s:string" />
+        <wsdl:part name="ArvService" type="s:string" />
+        <wsdl:part name="ArvZip" type="s:string" />
+        <wsdl:part name="SpecialServiceIDArv" type="s:string" />
+        <wsdl:part name="RedemptionAmt" type="s:string" />
+        <wsdl:part name="CardType" type="s:string" />
+        <wsdl:part name="CCNum" type="s:string" />
+        <wsdl:part name="CCname" type="s:string" />
+        <wsdl:part name="CCExpDate" type="s:string" />
+        <wsdl:part name="CCCID" type="s:string" />
+        <wsdl:part name="CCTypeID" type="s:string" />
+        <wsdl:part name="CZip" type="s:string" />
+        <wsdl:part name="ReqType" type="s:string" />
+        <wsdl:part name="InfoID" type="s:string" />
+        <wsdl:part name="PmtMode" type="s:string" />
+        <wsdl:part name="PMTDetails" type="s:string" />
+        <wsdl:part name="ISWindowID" type="s:string" />
+        <wsdl:part name="ArvCity" type="s:string" />
+        <wsdl:part name="SpecialServicesJourneyType" type="s:string" />
+        <wsdl:part name="TravelerFName" type="s:string" />
+        <wsdl:part name="TravelerLName" type="s:string" />
+        <wsdl:part name="TravelerHomePhno" type="s:string" />
+        <wsdl:part name="TravelerWorkPhno" type="s:string" />
+        <wsdl:part name="Travelercellno" type="s:string" />
+        <wsdl:part name="IP" type="s:string" />
+        <wsdl:part name="DepZip" type="s:string" />
+        <wsdl:part name="DepService" type="s:string" />
+        <wsdl:part name="DepPickUp" type="s:string" />
+        <wsdl:part name="ArvStreetNumber" type="s:string" />
+        <wsdl:part name="DepStreetNumber" type="s:string" />
+        <wsdl:part name="ArvStreet" type="s:string" />
+        <wsdl:part name="DepStreet" type="s:string" />
+        <wsdl:part name="ArvUnit" type="s:string" />
+        <wsdl:part name="DepUnit" type="s:string" />
+        <wsdl:part name="ArvDirections" type="s:string" />
+        <wsdl:part name="DepDirections" type="s:string" />
+        <wsdl:part name="ComplexArv" type="s:string" />
+        <wsdl:part name="ComplexDep" type="s:string" />
+        <wsdl:part name="ArvAP" type="s:string" />
+        <wsdl:part name="DepAP" type="s:string" />
+        <wsdl:part name="ArvFlt" type="s:string" />
+        <wsdl:part name="DepFlt" type="s:string" />
+        <wsdl:part name="DepPickupTime" type="s:string" />
+        <wsdl:part name="arvFltTime" type="s:string" />
+        <wsdl:part name="DepFltTime" type="s:string" />
+        <wsdl:part name="ArvAirline" type="s:string" />
+        <wsdl:part name="DepAirline" type="s:string" />
+        <wsdl:part name="FltType" type="s:string" />
+        <wsdl:part name="origin" type="s:string" />
+        <wsdl:part name="FlyingTo" type="s:string" />
+        <wsdl:part name="DepPassenger" type="s:string" />
+        <wsdl:part name="DepDate" type="s:string" />
+        <wsdl:part name="DepCity" type="s:string" />
+        <wsdl:part name="DepFee" type="s:string" />
+        <wsdl:part name="DepGratuity" type="s:string" />
+        <wsdl:part name="Surcharge" type="s:string" />
+        <wsdl:part name="TravelerEmail" type="s:string" />
+        <wsdl:part name="specialinst" type="s:string" />
+        <wsdl:part name="Restype1" type="s:string" />
+        <wsdl:part name="Restypedetail" type="s:string" />
+        <wsdl:part name="BillTo" type="s:string" />
+        <wsdl:part name="ReqArvTime" type="s:string" />
+        <wsdl:part name="IsSendEmail" type="s:string" />
+        <wsdl:part name="MailTo" type="s:string" />
+        <wsdl:part name="CharterDep" type="s:string" />
+        <wsdl:part name="CharterArv" type="s:string" />
+        <wsdl:part name="ClientId" type="s:string" />
+        <wsdl:part name="SpecialServiceIDDep" type="s:string" />
+        <wsdl:part name="DepServiceidNew" type="s:string" />
+        <wsdl:part name="ArvServiceidNew" type="s:string" />
+        <wsdl:part name="ArvCancel" type="s:string" />
+        <wsdl:part name="DepCancel" type="s:string" />
+        <wsdl:part name="CouponEmail" type="s:string" />
+        <wsdl:part name="DiscCode" type="s:string" />
+        <wsdl:part name="DiscAmt" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="SaveReservationHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportHttpPostIn">
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetAirportHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressHttpPostIn">
+        <wsdl:part name="Customerid" type="s:string" />
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetAddressHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelHttpPostIn">
+        <wsdl:part name="Zip" type="s:string" />
+        <wsdl:part name="City" type="s:string" />
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetHotelHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineHttpPostIn">
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetAirLineHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationHttpPostIn">
+        <wsdl:part name="Customerid" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetMyReservationHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationHttpPostIn">
+        <wsdl:part name="EmailAddress" type="s:string" />
+        <wsdl:part name="FName" type="s:string" />
+        <wsdl:part name="LName" type="s:string" />
+        <wsdl:part name="HomePhone" type="s:string" />
+        <wsdl:part name="CellPhone" type="s:string" />
+        <wsdl:part name="Number" type="s:string" />
+        <wsdl:part name="Street" type="s:string" />
+        <wsdl:part name="Unit" type="s:string" />
+        <wsdl:part name="Complex" type="s:string" />
+        <wsdl:part name="City" type="s:string" />
+        <wsdl:part name="Zip" type="s:string" />
+        <wsdl:part name="Password" type="s:string" />
+        <wsdl:part name="Direction" type="s:string" />
+        <wsdl:part name="Custid" type="s:string" />
+        <wsdl:part name="CustType" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="NewUserRegistrationHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairHttpPostIn">
+        <wsdl:part name="PreFix" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetCityZipPairHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationHttpPostIn">
+        <wsdl:part name="UpdateMode" type="s:string" />
+        <wsdl:part name="ResId" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="CancelReservationHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationHttpPostIn">
+        <wsdl:part name="phone" type="s:string" />
+        <wsdl:part name="res" type="s:string" />
+        <wsdl:part name="lname" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="GetPickupETAForReservationHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsHttpPostIn">
+        <wsdl:part name="ReservationNo" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="EmailResDetailsHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsHttpPostIn">
+        <wsdl:part name="ReservationNo" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="EmailPaymentDetailsHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDHttpPostIn">
+        <wsdl:part name="TransId" type="s:string" />
+        <wsdl:part name="UserName" type="s:string" />
+        <wsdl:part name="QGUser" type="s:string" />
+        <wsdl:part name="VaultKey" type="s:string" />
+        <wsdl:part name="CustId" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="ChargeNowFromQGWithCustIDHttpPostOut">
+        <wsdl:part name="Body" />
+    </wsdl:message>
+    <wsdl:portType name="RR13Soap">
+        <wsdl:operation name="GetFareForReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the Fares for the Reservation. Inputs:  Airport short code, ZipCode , Passengers  fore arrival and departure legs. </wsdl:documentation>
+            <wsdl:input message="tns:GetFareForReservationSoapIn" />
+            <wsdl:output message="tns:GetFareForReservationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method for authentication and Login.  Username and Password.</wsdl:documentation>
+            <wsdl:input message="tns:CheckLoginSoapIn" />
+            <wsdl:output message="tns:CheckLoginSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows getting email password reminder. </wsdl:documentation>
+            <wsdl:input message="tns:ForgotPasswordSoapIn" />
+            <wsdl:output message="tns:ForgotPasswordSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows create new reservation.</wsdl:documentation>
+            <wsdl:input message="tns:SaveReservationSoapIn" />
+            <wsdl:output message="tns:SaveReservationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows us to get airport details based on specific input. Input is a string prefix of airport name.</wsdl:documentation>
+            <wsdl:input message="tns:GetAirportSoapIn" />
+            <wsdl:output message="tns:GetAirportSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web method is for getting addresses for a customer. Inputs: customer Id and a prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetAddressSoapIn" />
+            <wsdl:output message="tns:GetAddressSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is to get hotel details for specific city. Input: zip code, City name and hotel name string prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetHotelSoapIn" />
+            <wsdl:output message="tns:GetHotelSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get airline details. Input is an airline prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetAirLineSoapIn" />
+            <wsdl:output message="tns:GetAirLineSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the Reservations for the CustomerID. Inputs:  CustomerID </wsdl:documentation>
+            <wsdl:input message="tns:GetMyReservationSoapIn" />
+            <wsdl:output message="tns:GetMyReservationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows new user registration. Input: EmailAddress, FName, LName, HomePhone, CellPhone, Number, Street, Unit, Complex, City, Zip, Password, Direction, Custid and CustType</wsdl:documentation>
+            <wsdl:input message="tns:NewUserRegistrationSoapIn" />
+            <wsdl:output message="tns:NewUserRegistrationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows to fetch the zip codes for specific city. Input: City name as a prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetCityZipPairSoapIn" />
+            <wsdl:output message="tns:GetCityZipPairSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The method to cancel reservations</wsdl:documentation>
+            <wsdl:input message="tns:CancelReservationSoapIn" />
+            <wsdl:output message="tns:CancelReservationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows a customer to get the estimiated pickup time for a reservation. Input: Phone no., reservation no. and customer last name.</wsdl:documentation>
+            <wsdl:input message="tns:GetPickupETAForReservationSoapIn" />
+            <wsdl:output message="tns:GetPickupETAForReservationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the reservation details for Email.</wsdl:documentation>
+            <wsdl:input message="tns:EmailResDetailsSoapIn" />
+            <wsdl:output message="tns:EmailResDetailsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the payment details for Email.</wsdl:documentation>
+            <wsdl:input message="tns:EmailPaymentDetailsSoapIn" />
+            <wsdl:output message="tns:EmailPaymentDetailsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method for Charge creditcards transactions.</wsdl:documentation>
+            <wsdl:input message="tns:ChargeNowFromQGWithCustIDSoapIn" />
+            <wsdl:output message="tns:ChargeNowFromQGWithCustIDSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="RR13HttpGet">
+        <wsdl:operation name="GetFareForReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the Fares for the Reservation. Inputs:  Airport short code, ZipCode , Passengers  fore arrival and departure legs. </wsdl:documentation>
+            <wsdl:input message="tns:GetFareForReservationHttpGetIn" />
+            <wsdl:output message="tns:GetFareForReservationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method for authentication and Login.  Username and Password.</wsdl:documentation>
+            <wsdl:input message="tns:CheckLoginHttpGetIn" />
+            <wsdl:output message="tns:CheckLoginHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows getting email password reminder. </wsdl:documentation>
+            <wsdl:input message="tns:ForgotPasswordHttpGetIn" />
+            <wsdl:output message="tns:ForgotPasswordHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows create new reservation.</wsdl:documentation>
+            <wsdl:input message="tns:SaveReservationHttpGetIn" />
+            <wsdl:output message="tns:SaveReservationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows us to get airport details based on specific input. Input is a string prefix of airport name.</wsdl:documentation>
+            <wsdl:input message="tns:GetAirportHttpGetIn" />
+            <wsdl:output message="tns:GetAirportHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web method is for getting addresses for a customer. Inputs: customer Id and a prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetAddressHttpGetIn" />
+            <wsdl:output message="tns:GetAddressHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is to get hotel details for specific city. Input: zip code, City name and hotel name string prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetHotelHttpGetIn" />
+            <wsdl:output message="tns:GetHotelHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get airline details. Input is an airline prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetAirLineHttpGetIn" />
+            <wsdl:output message="tns:GetAirLineHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the Reservations for the CustomerID. Inputs:  CustomerID </wsdl:documentation>
+            <wsdl:input message="tns:GetMyReservationHttpGetIn" />
+            <wsdl:output message="tns:GetMyReservationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows new user registration. Input: EmailAddress, FName, LName, HomePhone, CellPhone, Number, Street, Unit, Complex, City, Zip, Password, Direction, Custid and CustType</wsdl:documentation>
+            <wsdl:input message="tns:NewUserRegistrationHttpGetIn" />
+            <wsdl:output message="tns:NewUserRegistrationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows to fetch the zip codes for specific city. Input: City name as a prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetCityZipPairHttpGetIn" />
+            <wsdl:output message="tns:GetCityZipPairHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The method to cancel reservations</wsdl:documentation>
+            <wsdl:input message="tns:CancelReservationHttpGetIn" />
+            <wsdl:output message="tns:CancelReservationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows a customer to get the estimiated pickup time for a reservation. Input: Phone no., reservation no. and customer last name.</wsdl:documentation>
+            <wsdl:input message="tns:GetPickupETAForReservationHttpGetIn" />
+            <wsdl:output message="tns:GetPickupETAForReservationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the reservation details for Email.</wsdl:documentation>
+            <wsdl:input message="tns:EmailResDetailsHttpGetIn" />
+            <wsdl:output message="tns:EmailResDetailsHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the payment details for Email.</wsdl:documentation>
+            <wsdl:input message="tns:EmailPaymentDetailsHttpGetIn" />
+            <wsdl:output message="tns:EmailPaymentDetailsHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method for Charge creditcards transactions.</wsdl:documentation>
+            <wsdl:input message="tns:ChargeNowFromQGWithCustIDHttpGetIn" />
+            <wsdl:output message="tns:ChargeNowFromQGWithCustIDHttpGetOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="RR13HttpPost">
+        <wsdl:operation name="GetFareForReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the Fares for the Reservation. Inputs:  Airport short code, ZipCode , Passengers  fore arrival and departure legs. </wsdl:documentation>
+            <wsdl:input message="tns:GetFareForReservationHttpPostIn" />
+            <wsdl:output message="tns:GetFareForReservationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method for authentication and Login.  Username and Password.</wsdl:documentation>
+            <wsdl:input message="tns:CheckLoginHttpPostIn" />
+            <wsdl:output message="tns:CheckLoginHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows getting email password reminder. </wsdl:documentation>
+            <wsdl:input message="tns:ForgotPasswordHttpPostIn" />
+            <wsdl:output message="tns:ForgotPasswordHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows create new reservation.</wsdl:documentation>
+            <wsdl:input message="tns:SaveReservationHttpPostIn" />
+            <wsdl:output message="tns:SaveReservationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows us to get airport details based on specific input. Input is a string prefix of airport name.</wsdl:documentation>
+            <wsdl:input message="tns:GetAirportHttpPostIn" />
+            <wsdl:output message="tns:GetAirportHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web method is for getting addresses for a customer. Inputs: customer Id and a prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetAddressHttpPostIn" />
+            <wsdl:output message="tns:GetAddressHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is to get hotel details for specific city. Input: zip code, City name and hotel name string prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetHotelHttpPostIn" />
+            <wsdl:output message="tns:GetHotelHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is used to get airline details. Input is an airline prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetAirLineHttpPostIn" />
+            <wsdl:output message="tns:GetAirLineHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the Reservations for the CustomerID. Inputs:  CustomerID </wsdl:documentation>
+            <wsdl:input message="tns:GetMyReservationHttpPostIn" />
+            <wsdl:output message="tns:GetMyReservationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows new user registration. Input: EmailAddress, FName, LName, HomePhone, CellPhone, Number, Street, Unit, Complex, City, Zip, Password, Direction, Custid and CustType</wsdl:documentation>
+            <wsdl:input message="tns:NewUserRegistrationHttpPostIn" />
+            <wsdl:output message="tns:NewUserRegistrationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows to fetch the zip codes for specific city. Input: City name as a prefix.</wsdl:documentation>
+            <wsdl:input message="tns:GetCityZipPairHttpPostIn" />
+            <wsdl:output message="tns:GetCityZipPairHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The method to cancel reservations</wsdl:documentation>
+            <wsdl:input message="tns:CancelReservationHttpPostIn" />
+            <wsdl:output message="tns:CancelReservationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method allows a customer to get the estimiated pickup time for a reservation. Input: Phone no., reservation no. and customer last name.</wsdl:documentation>
+            <wsdl:input message="tns:GetPickupETAForReservationHttpPostIn" />
+            <wsdl:output message="tns:GetPickupETAForReservationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the reservation details for Email.</wsdl:documentation>
+            <wsdl:input message="tns:EmailResDetailsHttpPostIn" />
+            <wsdl:output message="tns:EmailResDetailsHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method gets the payment details for Email.</wsdl:documentation>
+            <wsdl:input message="tns:EmailPaymentDetailsHttpPostIn" />
+            <wsdl:output message="tns:EmailPaymentDetailsHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method for Charge creditcards transactions.</wsdl:documentation>
+            <wsdl:input message="tns:ChargeNowFromQGWithCustIDHttpPostIn" />
+            <wsdl:output message="tns:ChargeNowFromQGWithCustIDHttpPostOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="RR13Soap" type="tns:RR13Soap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="GetFareForReservation">
+            <soap:operation soapAction="http://tempuri.org/GetFareForReservation" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetFareForReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <soap:operation soapAction="http://tempuri.org/CheckLogin" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:CheckLoginAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <soap:operation soapAction="http://tempuri.org/ForgotPassword" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:ForgotPasswordAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <soap:operation soapAction="http://tempuri.org/SaveReservation" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:SaveReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <soap:operation soapAction="http://tempuri.org/GetAirport" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetAirportAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <soap:operation soapAction="http://tempuri.org/GetAddress" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetAddressAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <soap:operation soapAction="http://tempuri.org/GetHotel" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetHotelAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <soap:operation soapAction="http://tempuri.org/GetAirLine" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetAirLineAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <soap:operation soapAction="http://tempuri.org/GetMyReservation" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetMyReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <soap:operation soapAction="http://tempuri.org/NewUserRegistration" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:NewUserRegistrationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <soap:operation soapAction="http://tempuri.org/GetCityZipPair" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetCityZipPairAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <soap:operation soapAction="http://tempuri.org/CancelReservation" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:CancelReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <soap:operation soapAction="http://tempuri.org/GetPickupETAForReservation" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetPickupETAForReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <soap:operation soapAction="http://tempuri.org/EmailResDetails" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:EmailResDetailsAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <soap:operation soapAction="http://tempuri.org/EmailPaymentDetails" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:EmailPaymentDetailsAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <soap:operation soapAction="http://tempuri.org/ChargeNowFromQGWithCustID" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:ChargeNowFromQGWithCustIDAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="RR13Soap12" type="tns:RR13Soap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="GetFareForReservation">
+            <soap12:operation soapAction="http://tempuri.org/GetFareForReservation" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetFareForReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <soap12:operation soapAction="http://tempuri.org/CheckLogin" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:CheckLoginAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <soap12:operation soapAction="http://tempuri.org/ForgotPassword" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:ForgotPasswordAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <soap12:operation soapAction="http://tempuri.org/SaveReservation" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:SaveReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <soap12:operation soapAction="http://tempuri.org/GetAirport" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetAirportAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <soap12:operation soapAction="http://tempuri.org/GetAddress" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetAddressAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <soap12:operation soapAction="http://tempuri.org/GetHotel" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetHotelAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <soap12:operation soapAction="http://tempuri.org/GetAirLine" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetAirLineAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <soap12:operation soapAction="http://tempuri.org/GetMyReservation" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetMyReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <soap12:operation soapAction="http://tempuri.org/NewUserRegistration" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:NewUserRegistrationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <soap12:operation soapAction="http://tempuri.org/GetCityZipPair" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetCityZipPairAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <soap12:operation soapAction="http://tempuri.org/CancelReservation" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:CancelReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <soap12:operation soapAction="http://tempuri.org/GetPickupETAForReservation" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetPickupETAForReservationAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <soap12:operation soapAction="http://tempuri.org/EmailResDetails" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:EmailResDetailsAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <soap12:operation soapAction="http://tempuri.org/EmailPaymentDetails" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:EmailPaymentDetailsAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <soap12:operation soapAction="http://tempuri.org/ChargeNowFromQGWithCustID" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:ChargeNowFromQGWithCustIDAuthSoapHd" part="AuthSoapHd" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="RR13HttpGet" type="tns:RR13HttpGet">
+        <http:binding verb="GET" />
+        <wsdl:operation name="GetFareForReservation">
+            <http:operation location="/GetFareForReservation" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <http:operation location="/CheckLogin" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <http:operation location="/ForgotPassword" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <http:operation location="/SaveReservation" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <http:operation location="/GetAirport" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <http:operation location="/GetAddress" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <http:operation location="/GetHotel" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <http:operation location="/GetAirLine" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <http:operation location="/GetMyReservation" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <http:operation location="/NewUserRegistration" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <http:operation location="/GetCityZipPair" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <http:operation location="/CancelReservation" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <http:operation location="/GetPickupETAForReservation" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <http:operation location="/EmailResDetails" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <http:operation location="/EmailPaymentDetails" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <http:operation location="/ChargeNowFromQGWithCustID" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="RR13HttpPost" type="tns:RR13HttpPost">
+        <http:binding verb="POST" />
+        <wsdl:operation name="GetFareForReservation">
+            <http:operation location="/GetFareForReservation" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckLogin">
+            <http:operation location="/CheckLogin" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ForgotPassword">
+            <http:operation location="/ForgotPassword" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SaveReservation">
+            <http:operation location="/SaveReservation" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirport">
+            <http:operation location="/GetAirport" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAddress">
+            <http:operation location="/GetAddress" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetHotel">
+            <http:operation location="/GetHotel" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAirLine">
+            <http:operation location="/GetAirLine" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetMyReservation">
+            <http:operation location="/GetMyReservation" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="NewUserRegistration">
+            <http:operation location="/NewUserRegistration" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCityZipPair">
+            <http:operation location="/GetCityZipPair" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelReservation">
+            <http:operation location="/CancelReservation" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickupETAForReservation">
+            <http:operation location="/GetPickupETAForReservation" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailResDetails">
+            <http:operation location="/EmailResDetails" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="EmailPaymentDetails">
+            <http:operation location="/EmailPaymentDetails" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChargeNowFromQGWithCustID">
+            <http:operation location="/ChargeNowFromQGWithCustID" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content part="Body" type="text/xml" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="RR13">
+        <wsdl:port name="RR13Soap" binding="tns:RR13Soap">
+            <soap:address location="http://rezdsp.shuttlecompanyofamerica.com/ridefly/rr13.asmx" />
+        </wsdl:port>
+        <wsdl:port name="RR13Soap12" binding="tns:RR13Soap12">
+            <soap12:address location="http://rezdsp.shuttlecompanyofamerica.com/ridefly/rr13.asmx" />
+        </wsdl:port>
+        <wsdl:port name="RR13HttpGet" binding="tns:RR13HttpGet">
+            <http:address location="http://rezdsp.shuttlecompanyofamerica.com/ridefly/rr13.asmx" />
+        </wsdl:port>
+        <wsdl:port name="RR13HttpPost" binding="tns:RR13HttpPost">
+            <http:address location="http://rezdsp.shuttlecompanyofamerica.com/ridefly/rr13.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

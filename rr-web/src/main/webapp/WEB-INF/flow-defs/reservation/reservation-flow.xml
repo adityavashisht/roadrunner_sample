@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+      http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="routeStep1">
+
+    <var name="reservationForm" class="com.scoa.roadrunner.web.flow.reservation.ReservationForm"/>
+
+    <view-state id="routeStep1" model="reservationForm">
+        <on-render>
+            <evaluate expression="reservationAction.initialize(reservationForm, flowRequestContext)"/>
+        </on-render>
+        <transition on="yes" to="routeStep1Action" validate="true" bind="true"/>
+        <transition on="clean" to="cancel" validate="false" bind="false" history="invalidate"/>
+        <transition on="error" to="endFlow"/>
+    </view-state>
+
+    <action-state id="routeStep1Action">
+        <evaluate expression="reservationAction.fare(reservationForm, flowRequestContext)"/>
+        <transition on="error" to="routeStep1"/>
+        <transition on="yes" to="showStep2"/>
+        <transition on="no" to="endFlow"/>
+    </action-state>
+
+    <decision-state id="showStep2">
+        <if test="flowScope.stepCompleted == 'Y'" then="endFlow" else="routeStep2"/>
+    </decision-state>
+
+    <view-state id="routeStep2" model="reservationForm">
+        <transition on="yes" to="routeStep2Action" validate="true" bind="true"/>
+        <transition on="no" to="routeStep1" validate="false" bind="false"/>
+        <transition on="error" to="endFlow"/>
+    </view-state>
+
+    <action-state id="routeStep2Action">
+        <evaluate expression="reservationAction.flightInformation(reservationForm, flowRequestContext)"/>
+        <transition on="error" to="routeStep2"/>
+        <transition on="no" to="endFlow"/>
+        <transition on="yes" to="showStep3"/>
+    </action-state>
+
+    <decision-state id="showStep3">
+        <if test="flowScope.stepCompleted == 'Y'" then="endFlow" else="routeStep3"/>
+    </decision-state>
+
+    <view-state id="routeStep3" model="reservationForm">
+        <transition on="yes" to="routeStep3Action" validate="true" bind="true"/>
+        <transition on="no" to="routeStep2" validate="false" bind="false"/>
+        <transition on="error" to="endFlow"/>
+    </view-state>
+
+    <action-state id="routeStep3Action">
+        <evaluate expression="reservationAction.payment(reservationForm, flowRequestContext)"/>
+        <transition on="error" to="routeStep3"/>
+        <transition on="yes" to="showSuccess"/>
+        <transition on="no" to="endFlow"/>
+    </action-state>
+    
+    <decision-state id="showSuccess">
+        <if test="flowScope.stepCompleted == 'Y'" then="success" else="endFlow"/>
+    </decision-state>
+
+    <view-state id="success" model="reservationForm">
+        <on-entry>
+            <evaluate expression="reservationAction.end(flowRequestContext)"/>
+        </on-entry>
+        <transition on="yes" to="endFlow" history="invalidate"/>
+    </view-state>
+
+    <end-state id="endFlow" view="externalRedirect:contextRelative:/reservation"/>
+
+
+</flow>

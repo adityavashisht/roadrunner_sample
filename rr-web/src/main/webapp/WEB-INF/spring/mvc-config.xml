@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+    <context:component-scan base-package="com.scoa.roadrunner.web"/>
+
+    <bean id="webBindingConversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <!-- Custom converter -->
+                <bean class="org.springframework.core.convert.support.StringToBooleanConverter"/>
+                <bean class="com.scoa.roadrunner.web.converter.RouteTypeConverter"/>
+                <bean class="com.scoa.roadrunner.web.converter.DirectionTypeConverter"/>
+                <bean class="com.scoa.roadrunner.web.converter.ZipLandmarkConverter"/>
+                <bean class="com.scoa.roadrunner.web.converter.FlightRegionConverter"/>
+                <bean class="com.scoa.roadrunner.web.converter.CreditCardTypeConverter"/>
+                <bean class="com.scoa.roadrunner.web.converter.StringToDateTimeConverter"/>
+            </set>
+        </property>
+
+        <property name="formatters">
+            <bean class="com.scoa.roadrunner.web.extensions.MaskFormatAnnotationFormatterFactory"/>
+        </property>
+    </bean>
+
+
+    <!-- Enables controllers mapped with @RequestMapping annotations, formatting
+         annotations @NumberFormat @DateTimeFormat, and JSR 303 style validation -->
+    <mvc:annotation-driven conversion-service="webBindingConversionService"
+                           content-negotiation-manager="contentNegotiationManager">
+        <mvc:message-converters>
+            <bean id="byteArrayMessageConverter"
+                  class="org.springframework.http.converter.ByteArrayHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <bean class="org.springframework.http.MediaType">
+                            <constructor-arg value="application"/>
+                            <constructor-arg value="pdf"/>
+                        </bean>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+        <mvc:async-support default-timeout="3000"/>
+    </mvc:annotation-driven>
+    <mvc:default-servlet-handler/>
+
+    <!-- Application Message Bundle -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="WEB-INF/i18n/validation/validation-messages,
+                                          WEB-INF/i18n/system/system-errors,
+                                          WEB-INF/i18n/tokens/token,
+                                          WEB-INF/i18n/configuration/errors"/>
+        <!-- Value of -1 means cache forever -->
+        <property name="cacheSeconds" value="-1"/>
+    </bean>
+
+    <mvc:resources mapping="/ui/**" location="/ui/" cache-period="0"/>
+
+    <!-- order, value with lowest numerical values, have higher priority -->
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <property name="order" value="0"/>
+        <!-- Do not cache any view -->
+        <!--<property name="cache" value="false"/>-->
+    </bean>
+
+    <!-- Content Negotiating view resolver -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <value>
+                xml=application/xml
+                json=application/json
+                x-www-form-urlencoded=application/x-www-form-urlencoded
+            </value>
+        </property>
+    </bean>
+
+    <!-- End Content negotiation view  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="2"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- Configures the Tiles layout system -->
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles/tiles.xml</value>
+            </list>
+        </property>
+    </bean>
+</beans>

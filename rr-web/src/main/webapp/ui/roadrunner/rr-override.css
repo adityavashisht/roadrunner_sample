@@ -1,0 +1,187 @@
+label, input, button, select, textarea {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+    border-image: none;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-style: solid none;
+    border-width: 1px 0;
+    margin: 10px 0;
+}
+
+div.btn-group[data-toggle=buttons-radio] input[type=radio] {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: hidden;
+    visibility: hidden;
+}
+
+#roadrunner {
+    background: url(../images/logo.png) no-repeat scroll 0 0 transparent;
+    height: 77px;
+    position:absolute;
+    top:0;
+    width:311px;
+}
+
+.navbar-inverse .navbar-inner {
+    background-color: #1B1B1B;
+    /*background-image: linear-gradient(to bottom, #222222, #111111);*/
+    background-image: url(../images/foot-header-bg.png);
+    background-repeat: repeat-x;
+    border-color: #252525;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -150px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 150px;
+}
+#footer {
+    background: url(../images/footer-bg.png) repeat scroll 0 0 #EEEEEE;
+    color:#D3D7DC;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+#wrap > .container {
+    padding-top: 10px;
+}
+
+/* Faded out hr *//*
+
+hr.soften {
+    height: 1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+    border: 0;
+}
+*/
+
+.footer-middle {
+    border-top: 1px solid #4D5056;
+    clear: both;
+    height: auto;
+}
+
+#visa {
+    background: url(../images/visa.png) no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 28px;
+    margin-left: 5px;
+    width: 38px;
+}
+#master {
+    background: url(../images/master.png) no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#amex {
+    background: url(../images/amex.png) no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#discover {
+    background: url(../images/discover.png) no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#jcb {
+    background: url(../images/jcb.png) no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+
+#in {
+    background: url(../images/in-small.png) no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#facebook {
+    background: url(../images/facebook-small.png) no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#twitter {
+    background: url(../images/twitter-small.png) no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#mail {
+    background: url(../images/mail-small.png) no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#cross {
+    background: url(../images/cross-small.png) no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 28px;
+    margin-left: 2px;
+    width: 38px;
+}
+#buttery {
+    background: url(../images/buttery-small.png) no-repeat scroll 0 0 transparent;
+    width: 36px;
+}
+
+#bbb {
+    background:url(../images/bbb.gif) no-repeat scroll left bottom transparent;
+    height:70px;
+    width:70px;
+    margin-left:20px;
+}
+
+blockquote p {
+    font-size: 16px;
+}
+
+

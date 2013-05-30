@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <!-- Default Main Template -->
+    <definition name="mainLayout" template="/WEB-INF/views/layout/layout.jsp">
+        <put-attribute name="title" value="Road Runner"
+                       type="string"/>
+        <put-attribute name="html-header"
+                       value="/WEB-INF/views/layout/header.jsp"/>
+        <put-attribute name="banner"
+                       value="/WEB-INF/views/layout/banner.jsp"/>
+        <put-attribute name="footer"
+                       value="/WEB-INF/views/layout/footer.jsp"/>
+
+        <put-attribute name="body" value="/WEB-INF/views/layout/body.jsp"/>
+
+    </definition>
+
+    <definition name="exception.tilesView" extends="mainLayout">
+        <put-attribute name="body" value="/WEB-INF/views/exception.jsp"/>
+    </definition>
+
+    <definition name="logout.tilesView" extends="mainLayout">
+        <put-attribute name="body" value="/WEB-INF/views/logout.jsp"/>
+    </definition>
+
+
+    <!-- Reservation flow views -->
+    <definition name="routeStep1" extends="mainLayout">
+        <put-attribute name="body" value="/WEB-INF/flow-defs/reservation/initialize_1.jsp"/>
+    </definition>
+
+    <definition name="routeStep2" extends="mainLayout">
+        <put-attribute name="body" value="/WEB-INF/flow-defs/reservation/itinerary_2.jsp"/>
+    </definition>
+
+    <definition name="routeStep3" extends="mainLayout">
+        <put-attribute name="body" value="/WEB-INF/flow-defs/reservation/payment_3.jsp"/>
+    </definition>
+
+    <definition name="success" extends="mainLayout">
+        <put-attribute name="body" value="/WEB-INF/flow-defs/reservation/success_4.jsp"/>
+    </definition>
+
+
+
+</tiles-definitions>

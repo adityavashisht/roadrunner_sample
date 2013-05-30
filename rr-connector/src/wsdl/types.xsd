@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/">
+    <xs:element name="GetFareForReservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="DepAirport" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepZip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepPessanger" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepDate" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvAirport" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvZip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvPessanger" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvDate" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="QueryString" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DiscCode" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DiscAmt" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetFareForReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetFareForReservationResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="AuthSoapHd">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+        </xs:sequence>
+        <xs:anyAttribute />
+    </xs:complexType>
+    <xs:element name="CheckLogin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CheckLoginResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="CheckLoginResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ForgotPassword">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="UserEmailAddress" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ForgotPasswordResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="ForgotPasswordResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SaveReservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="CustID" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="TravellerID" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CustType" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ResType" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvDate" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvAirport" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvPassenger" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvPickupTime" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvFee" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvGratuity" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Discount" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Conf" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="SpecialServiceamt" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvService" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvZip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="SpecialServiceIDArv" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="RedemptionAmt" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CardType" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CCNum" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CCname" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CCExpDate" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CCCID" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CCTypeID" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CZip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ReqType" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="InfoID" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="PmtMode" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="PMTDetails" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ISWindowID" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvCity" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="SpecialServicesJourneyType" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="TravelerFName" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="TravelerLName" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="TravelerHomePhno" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="TravelerWorkPhno" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Travelercellno" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="IP" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepZip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepService" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepPickUp" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvStreetNumber" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepStreetNumber" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvStreet" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepStreet" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvUnit" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepUnit" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvDirections" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepDirections" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ComplexArv" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ComplexDep" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvAP" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepAP" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvFlt" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepFlt" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepPickupTime" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="arvFltTime" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepFltTime" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvAirline" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepAirline" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="FltType" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="origin" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="FlyingTo" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepPassenger" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepDate" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepCity" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepFee" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepGratuity" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Surcharge" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="TravelerEmail" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="specialinst" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Restype1" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Restypedetail" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="BillTo" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ReqArvTime" type="xs:string" />
+                <xs:element minOccurs="1" maxOccurs="1" name="IsSendEmail" type="xs:boolean" />
+                <xs:element minOccurs="0" maxOccurs="1" name="MailTo" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CharterDep" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CharterArv" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ClientId" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="SpecialServiceIDDep" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepServiceidNew" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvServiceidNew" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="ArvCancel" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DepCancel" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CouponEmail" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DiscCode" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="DiscAmt" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SaveReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="SaveReservationResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAirport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="PreFix" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAirportResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetAirportResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAddress">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="Customerid" type="xs:int" />
+                <xs:element minOccurs="0" maxOccurs="1" name="PreFix" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAddressResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetAddressResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetHotel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="Zip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="City" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="PreFix" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetHotelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetHotelResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAirLine">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="PreFix" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAirLineResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetAirLineResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetMyReservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="Customerid" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetMyReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetMyReservationResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="NewUserRegistration">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="FName" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="LName" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="HomePhone" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="CellPhone" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Number" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Street" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Unit" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Complex" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="City" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Zip" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="Direction" type="xs:string" />
+                <xs:element minOccurs="1" maxOccurs="1" name="Custid" type="xs:int" />
+                <xs:element minOccurs="1" maxOccurs="1" name="CustType" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="NewUserRegistrationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="NewUserRegistrationResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetCityZipPair">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="PreFix" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetCityZipPairResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetCityZipPairResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelReservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="UpdateMode" type="xs:int" />
+                <xs:element minOccurs="1" maxOccurs="1" name="ResId" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="CancelReservationResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPickupETAForReservation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="phone" type="xs:string" />
+                <xs:element minOccurs="1" maxOccurs="1" name="res" type="xs:int" />
+                <xs:element minOccurs="0" maxOccurs="1" name="lname" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPickupETAForReservationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="GetPickupETAForReservationResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EmailResDetails">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="ReservationNo" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EmailResDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="EmailResDetailsResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EmailPaymentDetails">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="ReservationNo" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EmailPaymentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="EmailPaymentDetailsResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ChargeNowFromQGWithCustID">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="TransId" type="xs:int" />
+                <xs:element minOccurs="0" maxOccurs="1" name="UserName" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="QGUser" type="xs:string" />
+                <xs:element minOccurs="0" maxOccurs="1" name="VaultKey" type="xs:string" />
+                <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ChargeNowFromQGWithCustIDResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="1" name="ChargeNowFromQGWithCustIDResult">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+        
+
+        

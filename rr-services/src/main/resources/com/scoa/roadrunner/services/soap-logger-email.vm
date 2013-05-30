@@ -1,0 +1,12 @@
+<h2>REQUEST</h2>
+<br/>
+
+${REQUEST}
+<br/>
+<br/>
+<br/>
+<h2>RESPONSE:</h2>
+<br/>
+
+${RESPONSE}
+

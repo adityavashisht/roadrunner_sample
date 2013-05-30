@@ -1,0 +1,9 @@
+<GetAirportResponse xmlns="http://tempuri.org/">
+    <GetAirportResult>
+        <RESP xmlns="">
+            <TITLE>Proper</TITLE>
+            <MSG>Status msg goes here</MSG>
+            <Airport Longname="Phoenix Sky Harbor International Airport" Name="PHX" zip="85034"/>
+        </RESP>
+    </GetAirportResult>
+</GetAirportResponse>
